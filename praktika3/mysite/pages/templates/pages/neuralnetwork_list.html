@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Нейросети{% endblock %}
+{% block content %}
+<h1>Список нейросетей</h1>
+<a href="{% url 'create_neuralnetwork' %}" class="button">Добавить нейросеть</a>
+<ul>
+    {% for network in networks %}
+        <li>{{ network.name }}
+            <a href="{% url 'edit_neuralnetwork' network.pk %}">Редактировать</a> |
+            <a href="{% url 'delete_neuralnetwork' network.pk %}">Удалить</a>
+        </li>
+    {% empty %}
+        <li>Нет нейросетей.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

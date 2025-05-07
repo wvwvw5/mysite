@@ -1,0 +1,29 @@
+{% load static %}
+<header>
+    <nav>
+        <ul>
+            {% if user.is_authenticated %}
+                {% if user.is_superuser %}
+                    <!-- Меню для суперпользователя -->
+                    <li><a href="{% url 'user_list' %}">Пользователи</a></li>
+                    <li><a href="{% url 'category_list' %}">Категории</a></li>
+                    <li><a href="{% url 'neuralnetwork_list' %}">Нейросети</a></li>
+                    <li><a href="{% url 'subscription_list' %}">Подписки</a></li>
+                    <li><a href="{% url 'order_list' %}">Заказы</a></li>
+                    <li><a href="{% url 'orderitem_list' %}">Элементы заказов</a></li>
+                    <li><a href="{% url 'payment_list' %}">Платежи</a></li>
+                    <li><a href="{% url 'review_list' %}">Отзывы</a></li>
+                {% endif %}
+                <!-- Меню для всех авторизованных пользователей (и суперюзера, и обычного) -->
+                <li><a href="{% url 'catalog' %}">Каталог</a></li>
+                <li><a href="{% url 'cart' %}">Корзина</a></li>
+                 <li><a href="{% url 'my_orders' %}">Мои заказы</a></li>
+                <li><a href="{% url 'logout' %}">Выйти</a></li>
+            {% else %}
+                <!-- Меню для неавторизованных пользователей -->
+                <li><a href="{% url 'login' %}">Войти</a></li>
+                <li><a href="{% url 'register' %}">Регистрация</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</header>

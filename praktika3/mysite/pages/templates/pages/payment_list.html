@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Платежи{% endblock %}
+{% block content %}
+<h1>Список платежей</h1>
+<a href="{% url 'create_payment' %}" class="button">Добавить платёж</a>
+<ul>
+    {% for payment in payments %}
+        <li>{{ payment.amount }} ₽ — заказ {{ payment.order.id }}, статус: {{ payment.status }}
+            <a href="{% url 'edit_payment' payment.pk %}">Редактировать</a> |
+            <a href="{% url 'delete_payment' payment.pk %}">Удалить</a>
+        </li>
+    {% empty %}
+        <li>Нет платежей.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

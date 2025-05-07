@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Каталог{% endblock %}
+{% block content %}
+<h1>Каталог нейросетей</h1>
+<ul>
+    {% for net in networks %}
+        <li>
+            {{ net.name }} - {{ net.description }}
+            <form method="post" action="{% url 'add_to_cart' net.id %}">
+                {% csrf_token %}
+                <button type="submit">Добавить в корзину</button>
+            </form>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

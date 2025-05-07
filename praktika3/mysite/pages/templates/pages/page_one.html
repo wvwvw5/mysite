@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>здрасте1</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'pages/style.css' %}">
+</head>
+<body>
+    <h1>Это здрасте 1</h1>
+
+    <!-- Добавляем картинку по ссылке -->
+    <img src="https://media.istockphoto.com/id/91626487/ru/%D1%84%D0%BE%D1%82%D0%BE/%D0%B7%D0%B0%D0%B1%D0%B0%D0%B2%D0%BD%D1%8B%D0%B9-kitten.jpg?s=612x612&w=0&k=20&c=45Ku4NH8aUUYgGRFSHU18cmK6FNAHl4N3VukKZj4cZM=" alt="Описание картинки" style="max-width: 100%; height: auto;">
+
+    <a href="{% url 'page_two' %}">Следующая страница</a>
+</body>
+</html>

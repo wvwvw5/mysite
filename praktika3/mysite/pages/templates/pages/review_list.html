@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Отзывы{% endblock %}
+{% block content %}
+<h1>Список отзывов</h1>
+<a href="{% url 'create_review' %}" class="button">Добавить отзыв</a>
+<ul>
+    {% for review in reviews %}
+        <li>{{ review.user.username }} о {{ review.network.name }}: ★{{ review.rating }} — "{{ review.comment }}"
+            <a href="{% url 'edit_review' review.pk %}">Редактировать</a> |
+            <a href="{% url 'delete_review' review.pk %}">Удалить</a>
+        </li>
+    {% empty %}
+        <li>Нет отзывов.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

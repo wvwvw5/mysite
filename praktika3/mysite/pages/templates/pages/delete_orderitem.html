@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Удалить элемент заказа{% endblock %}
+{% block content %}
+<h1>Удалить элемент заказа</h1>
+<p>Вы уверены, что хотите удалить элемент из заказа №{{ item.order.id }}?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="button">Удалить</button>
+    <a href="{% url 'orderitem_list' %}">Отмена</a>
+</form>
+{% endblock %}

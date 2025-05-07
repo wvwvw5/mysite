@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Подписки{% endblock %}
+{% block content %}
+<h1>Список подписок</h1>
+<a href="{% url 'create_subscription' %}" class="button">Добавить подписку</a>
+<ul>
+    {% for sub in subscriptions %}
+        <li>{{ sub.user.username }} на {{ sub.network.name }}
+            <a href="{% url 'edit_subscription' sub.pk %}">Редактировать</a> |
+            <a href="{% url 'delete_subscription' sub.pk %}">Удалить</a>
+        </li>
+    {% empty %}
+        <li>Нет подписок.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

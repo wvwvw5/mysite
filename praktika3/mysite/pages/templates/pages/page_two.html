@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>здрасте1</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'pages/style.css' %}">
+</head>
+<body>
+    <h1>Это здрасте 1</h1>
+    <a href="{% url 'page_one' %}">Предыдущая страница</a>
+
+    <!-- Добавляем картинку по ссылке -->
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfte52YSkOU9cVewR8bh4hlYFiut_YdY1lPw&s" alt="Описание картинки" style="max-width: 100%; height: auto;">
+
+    <a href="{% url 'page_two' %}">Следующая страница</a>
+</body>
+</html>
+

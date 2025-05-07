@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Заказы{% endblock %}
+{% block content %}
+<h1>Список заказов</h1>
+<a href="{% url 'create_order' %}" class="button">Добавить заказ</a>
+<ul>
+    {% for order in orders %}
+        <li>Заказ №{{ order.pk }} от {{ order.user.username }}
+            <a href="{% url 'edit_order' order.pk %}">Редактировать</a> |
+            <a href="{% url 'delete_order' order.pk %}">Удалить</a>
+        </li>
+    {% empty %}
+        <li>Нет заказов.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Категории{% endblock %}
+{% block content %}
+<h1>Список категорий</h1>
+<a href="{% url 'create_category' %}" class="button">Добавить категорию</a>
+<ul>
+    {% for category in categories %}
+        <li>{{ category.name }}
+            <a href="{% url 'edit_category' category.pk %}">Редактировать</a> |
+            <a href="{% url 'delete_category' category.pk %}">Удалить</a>
+        </li>
+    {% empty %}
+        <li>Нет категорий.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

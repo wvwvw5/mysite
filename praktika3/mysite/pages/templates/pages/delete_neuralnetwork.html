@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Удалить нейросеть{% endblock %}
+{% block content %}
+<h1>Удалить нейросеть</h1>
+<p>Вы уверены, что хотите удалить "{{ network.name }}"?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="button">Удалить</button>
+    <a href="{% url 'neuralnetwork_list' %}">Отмена</a>
+</form>
+{% endblock %}

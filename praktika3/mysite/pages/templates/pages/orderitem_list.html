@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Элементы заказов{% endblock %}
+{% block content %}
+<h1>Список элементов заказов</h1>
+<a href="{% url 'create_orderitem' %}" class="button">Добавить элемент</a>
+<ul>
+    {% for item in orderitems %}
+        <li>Заказ №{{ item.order.id }} — {{ item.network.name }}
+            <a href="{% url 'edit_orderitem' item.pk %}">Редактировать</a> |
+            <a href="{% url 'delete_orderitem' item.pk %}">Удалить</a>
+        </li>
+    {% empty %}
+        <li>Нет элементов заказов.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

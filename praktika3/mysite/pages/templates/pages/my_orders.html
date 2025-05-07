@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Мои заказы{% endblock %}
+
+{% block content %}
+<h1>Мои заказы</h1>
+
+{% for order in orders %}
+    <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 20px;">
+        <p><strong>Заказ №{{ order.id }}</strong></p>
+        <p>Дата создания: {{ order.created_at }}</p>
+        <p>Дата доставки: {{ order.delivery_date }}</p>
+        <p>Статус: {{ order.status }}</p>
+
+        <p><strong>Товары в заказе:</strong></p>
+        <ul>
+            {% for item in order.orderitem_set.all %}
+                <li>{{ item.neuralnetwork.name }} — Кол-во: {{ item.quantity }}</li>
+            {% empty %}
+                <li>Нет товаров в заказе.</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% empty %}
+    <p>У вас нет заказов.</p>
+{% endfor %}
+
+{% endblock %}

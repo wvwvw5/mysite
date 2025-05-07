@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Панель управления{% endblock %}</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+5hb7O4QF6fFZldG0lAv7FtRK0mn6OqQg1j2t8m" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="/static/pages/style.css">
+
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    {% include "includes/header.html" %}
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    {% include "includes/footer.html" %}
+
+<
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGFw7qv3JHLlG1+fZ8SOk2Vz2PyoJ13vOxLtpD8oTkk0" crossorigin="anonymous"></script>
+</body>
+</html>
